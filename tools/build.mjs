@@ -6,7 +6,9 @@ export const root = fileURLToPath(new URL('../', import.meta.url));
 export async function build() {
   const output = path.join(root, 'dist');
   await mkdir(output, { recursive: true });
-  await copyFile(path.join(root, 'index.html'), path.join(output, 'index.html'));
+  for (const page of ['index.html', 'doacoes.html']) {
+    await copyFile(path.join(root, page), path.join(output, page));
+  }
   for (const directory of ['style', 'scripts', 'images']) {
     await cp(path.join(root, directory), path.join(output, directory), { recursive: true });
   }

@@ -7,7 +7,44 @@ const sendButton = document.querySelector('#chat-send');
 const messages = document.querySelector('#chat-messages');
 const status = document.querySelector('#chat-status');
 const suggestions = [...document.querySelectorAll('[data-question]')];
+const officialLinks = {
+  'https://wa.me/message/5DZG6BIHDZTMK1': 'WhatsApp',
+  'https://www.instagram.com/ct_viver_limpo/': 'Instagram'
+};
+const officialLinkPattern = /https:\/\/wa\.me\/message\/5DZG6BIHDZTMK1|https:\/\/www\.instagram\.com\/ct_viver_limpo\//g;
 let pending = null;
+
+function appendAssistantText(content, text) {
+  let cursor = 0;
+
+  for (const match of text.matchAll(officialLinkPattern)) {
+    const url = match[0];
+    let before = text.slice(cursor, match.index);
+    let afterUrl = match.index + url.length;
+
+    // Aceita URLs soltas e formatos comuns como [nome](URL) e WhatsApp: URL.
+    const markdown = before.match(/\[[^\]\n]{1,80}\]\($/);
+    const label = before.match(/(?:WhatsApp|Instagram)\s*(?:[:：]\s*|\(\s*|\s+)$/i);
+    if (markdown && text[afterUrl] === ')') {
+      before = before.slice(0, -markdown[0].length);
+      afterUrl += 1;
+    } else if (label) {
+      before = before.slice(0, -label[0].length);
+      if (label[0].includes('(') && text[afterUrl] === ')') afterUrl += 1;
+    }
+
+    content.append(document.createTextNode(before));
+    const link = document.createElement('a');
+    link.href = url;
+    link.textContent = officialLinks[url];
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    content.append(link);
+    cursor = afterUrl;
+  }
+
+  content.append(document.createTextNode(text.slice(cursor)));
+}
 
 function syncControls() {
   input.disabled = Boolean(pending);
@@ -30,7 +67,8 @@ function appendMessage(role, text) {
   item.setAttribute('aria-label', role === 'user' ? 'Você' : 'Assistente virtual');
   const content = document.createElement('p');
   // Respostas do modelo são texto não confiável; nunca inserir com innerHTML.
-  content.textContent = text;
+  if (role === 'assistant') appendAssistantText(content, text);
+  else content.textContent = text;
   item.append(content);
   messages.append(item);
   while (messages.children.length > 41) messages.children[1].remove();

@@ -1,0 +1,61 @@
+/* Home page typography follows the quieter language of the donations page. */
+.hero h1,
+.intro h2,
+.history h2,
+.routine h2,
+.team h2,
+.support h2,
+.practical h2,
+.contact h2 {
+  font-family:var(--display);
+  font-weight:600;
+  line-height:1.12;
+  letter-spacing:-.055em;
+  text-transform:none;
+  text-shadow:none;
+}
+.hero h1{font-size:clamp(3rem,5.5vw,4.7rem);color:#092e4e;max-width:610px}
+.intro h2,.history h2,.routine h2,.team h2,.practical h2{font-size:clamp(2.5rem,4vw,3.8rem)}
+.support h2{font-size:clamp(3rem,5vw,4.7rem)}
+.contact h2{font-size:clamp(2.7rem,4.5vw,4rem)}
+.hero h1 em,.intro h2 em,.history h2 em,.routine h2 em,.team h2 em,.support h2 em,.practical h2 em,.contact h2 em{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  letter-spacing:-.055em;
+  text-transform:none;
+  text-shadow:none;
+  color:#08749b;
+}
+.routine{background:#eaf1f2;color:#12374a}
+.routine h2{color:#092e4e}
+.routine h2 em{color:#08749b}
+.routine .section-kicker,.routine-heading>p,.schedule-note p{color:#546873}
+.routine-card,.routine-card.featured{background:#fff;border:1px solid #dce5e9;border-radius:14px;color:#12374a}
+.routine-card.featured{background:#f4f9f9}
+.routine-card h3,.info-grid h3,.support-card h3,.gallery-heading h3{font-family:var(--display);font-weight:600;text-transform:none;letter-spacing:-.035em}
+.routine-card h3{font-size:1.5rem}
+.routine-card p{color:#546873}
+.card-tag,.section-kicker,.eyebrow,.hero-bottom,.team-circle,.team-caption,.support-card-top,.contact-option small,.brand small{text-transform:none}
+.card-tag{letter-spacing:.02em;color:#08749b}
+.schedule-note{border-color:#cbdcde}
+.schedule-note p strong{color:#12374a}
+.schedule-note a,.schedule-symbol{color:#08749b}
+.team-circle{letter-spacing:.01em}
+.team-visual{background:#eaf1f2;border-radius:18px}
+.circle-one{background:#d7eff1}.circle-two{background:#b9e1e6;color:#12374a}.circle-three{background:#c9e5d9;color:#12374a}
+.support{background:#eef6f5}
+.support h2 em{color:#08749b}
+.support-copy>p,.contact-inner>div:first-child>p,.hero-copy>p{color:#546873}
+.support-card,.contact-option{border-radius:16px;border:1px solid #dce5e9;box-shadow:none}
+.support-card h3{font-size:1.5rem}
+.contact{background:#eaf1f2}
+.contact h2 em{color:#08749b}
+.eyebrow,.section-kicker{color:#08749b;letter-spacing:.08em}
+.section-kicker span{color:#08749b}
+.gallery-heading h3{font-size:clamp(1.5rem,3vw,2.2rem)}
+@media(max-width:680px){
+  .hero h1{font-size:clamp(2.7rem,10vw,3.6rem)}
+  .intro h2,.history h2,.routine h2,.team h2,.practical h2{font-size:clamp(2.25rem,9vw,3rem)}
+  .support h2,.contact h2{font-size:clamp(2.7rem,10vw,3.6rem)}
+}

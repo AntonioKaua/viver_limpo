@@ -12,7 +12,9 @@ Fatos públicos:
 - A casa funciona 24 horas; isso não garante atendimento administrativo 24 horas.
 - Há atividades e oficinas diárias. O cronograma atualizado é fornecido pela administração.
 - Visitas, endereço, alimentação e colaboração devem ser consultados com a administração.
-- A chave Pix oficial deve ser solicitada à administração; não há chave publicada nesta base.
+- A chave Pix divulgada para doações é o CNPJ 52.847.484/0001-02, informado pela comunidade. O nome informado é Comunidade Terapêutica Viver Limpo. Oriente o visitante a conferir os dados do recebedor no banco antes de confirmar.
+- Atualmente as doações são recebidas somente via Pix. A página doacoes.html mostra a chave. Não há cobrança automática nem confirmação de pagamento no site.
 - WhatsApp oficial: https://wa.me/message/5DZG6BIHDZTMK1
 - Instagram: https://www.instagram.com/ct_viver_limpo/
+Ao sugerir contato pelo WhatsApp ou Instagram, inclua o endereço oficial correspondente na resposta. Não use outros endereços.
 Não execute ações nem alegue ter enviado mensagens, agendado visitas ou confirmado doações.`;

@@ -26,6 +26,7 @@ Copie o exemplo apenas se ainda não houver um arquivo de configuração. Edite 
 Sem configuração, o site abre normalmente e a API responde 503, sem chamar a Groq.
 Abra `http://127.0.0.1:3000`. Reinicie o comando após mudanças nos arquivos ou variáveis.
 O servidor local escuta apenas neste computador. Ctrl+C encerra o processo.
+Se aparecer "A porta 3000 já está em uso", volte à janela anterior do servidor e pressione Ctrl+C. Se precisar manter os dois servidores, use `$env:PORT=3001; npm run dev` em um novo PowerShell e abra `http://127.0.0.1:3001`.
 
 Para testar a API real depois da configuração, em outro terminal:
 
@@ -44,7 +45,7 @@ npm run build
 ```
 
 Os testes simulam o provedor e não enviam dados nem consomem cota.
-O build copia somente `index.html`, `style/`, `scripts/` e `images/` para `dist/`.
+O build copia somente `index.html`, `doacoes.html`, `style/`, `scripts/` e `images/` para `dist/`.
 Não coloque segredos nessas pastas públicas. `.env`, backend e testes não entram no build estático.
 
 ## Vercel e GitHub
@@ -83,3 +84,16 @@ O frontend futuro deve renderizar `reply` como texto (`textContent`), nunca como
 - A interface inclui aviso sobre processamento externo, estados de erro e contato humano. O aviso não substitui uma política de privacidade revisada para uso público.
 
 Referências: [Groq — dados](https://console.groq.com/docs/your-data), [Groq — cotas](https://console.groq.com/docs/rate-limits), [Vercel Functions](https://vercel.com/docs/functions/runtimes/node-js).
+
+## Página de doações
+
+`/doacoes.html` apresenta a chave Pix CNPJ 52.847.484/0001-02 e o nome informado pela comunidade. O visitante pode copiar a chave e concluir o Pix no banco. A página não processa pagamentos, não confirma transferências e não cria recorrência. Não há cadastro de doadores ou armazenamento de valores.
+
+O CNPJ e o nome foram informados pelo responsável no projeto. O CNPJ passou na validação dos dígitos verificadores, mas isso não confirma que está cadastrado como chave Pix. O visitante é orientado a conferir os dados mostrados pelo banco. Revise a titularidade e o cadastro da chave com a administração antes da publicação pública. Não gerar QR code sem os dados de cobrança verificados.
+
+Referências pesquisadas para a estrutura (21/11/2026):
+- [Fazenda da Esperança](https://portalfazenda.org.br/pix-deposito/): caminho específico para Pix e instruções passo a passo.
+- [GRAACC](https://graacc.org.br/doador-mensal/): contato humano para o doador e identificação do destinatário.
+- [AACD / Teleton](https://pixteleton.aacd.org.br/obterQrcode/a2c36326-b698-f011-b41b-6045bd389114): identificação do recebedor junto aos dados de pagamento.
+
+Foram adaptados clareza, orientação e contato humano. Nenhum dado bancário, meta, depoimento ou indicador dessas instituições foi reutilizado. Fotos e identidade visual são da Viver Limpo.
