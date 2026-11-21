@@ -1,0 +1,12 @@
+{
+  "name": "viver-limpo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.x" },
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env --env-file-if-exists=.env.local tools/dev.mjs",
+    "build": "node tools/build.mjs",
+    "test": "node --test"
+  }
+}
